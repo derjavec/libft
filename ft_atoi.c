@@ -11,7 +11,7 @@
 /* ************************************************************************** */
 #include "libft.h"
 
-static const char	*ft_effesp(const char *str)
+static const char	*erase_spaces(const char *str)
 {
 	int	i;
 
@@ -21,7 +21,7 @@ static const char	*ft_effesp(const char *str)
 	return (str + i);
 }
 
-static const char	*ft_effsign(const char *str)
+static const char	*erase_sign(const char *str)
 {
 	if (str[0] == '-' || str[0] == '+')
 		return (str + 1);
@@ -35,11 +35,11 @@ int	ft_atoi(const char *str )
 	int	i;
 	int	sign;
 
-	str = ft_effesp(str);
+	str = erase_spaces(str);
 	sign = 1;
 	if (str[0] == '-')
 		sign = -1;
-	str = ft_effsign(str);
+	str = erase_sign(str);
 	if (str[0] > '9' || str[0] < '0')
 		return (0);
 	i = 0;
